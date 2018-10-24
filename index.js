@@ -7,8 +7,6 @@ var clapConfig = {
    AUDIO_SOURCE: 'alsa hw:1,0'// default for linux
 };
 
-var time;
-var timer;
 var lastClap;
 var wasAvailable = false;
  
