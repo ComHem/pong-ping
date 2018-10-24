@@ -1,0 +1,22 @@
+{
+  "name": "pong-ping",
+  "version": "0.0.0",
+  "description": "first commit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bimer5/pong-ping.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bimer5/pong-ping/issues"
+  },
+  "homepage": "https://github.com/bimer5/pong-ping#readme",
+  "dependencies": {
+    "whistle-detection": "^1.0.3"
+  }
+}
