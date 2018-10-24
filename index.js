@@ -1,4 +1,7 @@
 var clapDetector = require('clap-detector');
+var secret = require('./secret.yml');
+var axios = require('axios');
+
 // Define configuration
 var clapConfig = {
    AUDIO_SOURCE: 'alsa hw:1,0'// default for linux
@@ -7,15 +10,23 @@ var clapConfig = {
 var time;
 var timer;
 var lastClap;
+var wasAvailable = false;
  
+var mattermostHookUrl = secret.mattermost.url;
+
 function checkAvailability() {
 	
 	var isAvailable = lastClap ? (new Date().getTime() - lastClap.time) > 5000 : false;
-	if (isAvailable)  {
-		console.log('Bollen har inte studsat på 5 sekunder bordet är ledigt');
-	} else {
-		console.log('Bordet är upptaget');
+	if (isAvailable != wasAvailable) {
+		var state = isAvailable ? 'LEDIGT' : 'UPPTAGET';
+		console.log(state);
+		axios.post(mattermostHookUrl, {
+			channel: 'pong-ping',
+			username: 'pong-ping',
+			text: state
+		});
 	}
+	wasAvailable = isAvailable;
 }
 
 // Start clap detection
