@@ -1,5 +1,5 @@
 var clapDetector = require('clap-detector');
-var secret = require('./secret.yml');
+var secret = require('./secret.js');
 var axios = require('axios');
 
 // Define configuration
@@ -12,7 +12,7 @@ var timer;
 var lastClap;
 var wasAvailable = false;
  
-var mattermostHookUrl = secret.mattermost.url;
+var mattermostHookUrl = secret.mattermost;
 
 function checkAvailability() {
 	
@@ -33,7 +33,6 @@ function checkAvailability() {
 function startApplication() {
 	clapDetector.start(clapConfig);
 	setInterval(checkAvailability, 2000)
-
 }	
  
 // Register on clap event
