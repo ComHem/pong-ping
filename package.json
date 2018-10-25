@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/bimer5/pong-ping#readme",
   "dependencies": {
-    "axios": "^0.18.0",
-    "whistle-detection": "^1.0.3"
+    "axios": "^0.18.0"
   }
 }
